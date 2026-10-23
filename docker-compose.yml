@@ -1,0 +1,19 @@
+# MySQL local para desenvolvimento. Em produção o banco fica numa VPS na UE (RGPD).
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: rota-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: rota_solidaria
+      MYSQL_USER: rota
+      MYSQL_PASSWORD: rota
+      TZ: Europe/Lisbon
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci", "--default-time-zone=+00:00"]
+    ports:
+      - "3307:3306"
+    volumes:
+      - rota-mysql-data:/var/lib/mysql
+volumes:
+  rota-mysql-data:

@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+@theme {
+  --color-marca-50: #f0fdfa;
+  --color-marca-100: #ccfbf1;
+  --color-marca-600: #0d9488;
+  --color-marca-700: #0f766e;
+  --color-marca-800: #115e59;
+}
+
+html, body, #root { height: 100%; }
+body {
+  background: var(--color-slate-50);
+  color: var(--color-slate-900);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Marcador do mapa sem as imagens padrão do Leaflet (que não funcionam com bundler). */
+.marcador-ponto {
+  width: 22px; height: 22px; border-radius: 9999px;
+  background: var(--color-marca-700); border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / .4);
+}
+.marcador-associacao {
+  width: 26px; height: 26px; border-radius: 6px;
+  background: var(--color-amber-500); border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / .4);
+}
+
+/* Montagem da rota */
+.marcador-num {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 9999px;
+  background: var(--color-marca-700); color: #fff; border: 2px solid #fff;
+  font: 600 13px/1 system-ui, sans-serif;
+  box-shadow: 0 1px 4px rgb(0 0 0 / .45);
+}
+.marcador-num.sel { background: var(--color-slate-900); transform: scale(1.25); }
+.marcador-num.novo { background: var(--color-amber-500); color: var(--color-slate-900); transform: scale(1.25); }
+.marcador-fora {
+  width: 18px; height: 18px; border-radius: 9999px;
+  background: var(--color-slate-400); border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / .35);
+}
+.marcador-fora.sel { background: var(--color-slate-900); transform: scale(1.3); }
